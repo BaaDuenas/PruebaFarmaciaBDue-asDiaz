@@ -1,0 +1,83 @@
+/* Restablece el padding y margin a 0 y establece box-sizing a border-box para todos los elementos, ayudando a manejar las dimensiones de manera más predecible */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para el cuerpo del documento, estableciendo el tamaño completo de la vista, centrando el contenido y añadiendo un fondo degradado */
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #1d3374; /* Color de fondo en caso de que los gradientes no sean soportados */
+    background: linear-gradient(to right, #6ebfdc, #61c03c);
+    padding: 20px;
+}
+
+/* Estilos para el contenedor principal del carrusel, con un fondo gris, sombra, bordes redondeados y ocultación de elementos desbordados */
+.container-carousel {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    background-color: #e0e0e0;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.66);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Configuraciones para el contenedor del carrusel, que se extiende mucho más que su contenedor padre para permitir el desplazamiento horizontal */
+.carruseles {
+    width: 1000%; /* Lo suficientemente ancho como para contener todas las secciones del slider */
+    height: 100%;
+    display: flex;
+}
+
+/* Estilos para cada sección del carrusel, con un ancho calculado en base al número de secciones y altura completa */
+.slider-section {
+    width: calc(100% / 10); /* Divide el ancho total entre el número de imágenes */
+    height: 100%;
+}
+
+/* Estilos para las imágenes dentro de cada sección del carrusel */
+.slider-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra completamente su contenedor sin deformarse */
+    border-radius: 15px; /* Bordes redondeados para las imágenes */
+}
+
+/* Estilos para los botones de navegación izquierdo y derecho */
+.btn-left,
+.btn-right {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    font-size: 1.5rem;
+    background-color: transparent; /* Fondo transparente inicialmente */
+    border-radius: 50%;
+    padding: 5px;
+    font-weight: 600;
+    cursor: pointer; /* Cambia el cursor a una mano para indicar interactividad */
+    color: #ffffff81; /* Color blanco semitransparente */
+    transform: translate(0,-50%); /* Centra los botones verticalmente */
+    transition: .5s ease; /* Transición suave para los cambios de estado */
+    user-select: none; /* Evita que el texto del botón sea seleccionable */
+}
+
+/* Estilos para los botones cuando se les pasa el cursor por encima, cambiando su color de fondo y texto */
+.btn-left:hover,
+.btn-right:hover {
+    background-color: #333333d4; /* Fondo oscuro semitransparente */
+    color: #fff; /* Texto blanco */
+}
+
+/* Posicionamiento específico para los botones de navegación */
+.btn-left {
+    left: 10px;
+}
+
+.btn-right {
+    right: 10px;
+}
